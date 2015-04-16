@@ -1,0 +1,154 @@
+/* ---------------------------------------- Base Styles */
+
+// Foundation
+html {height: 100%;}
+body {
+    height: inherit;
+    background: $gray-high;
+    overflow-x: hidden;
+    @include typography(16px, 0.5px, 200);
+}
+.app-wrapper {
+    display: block;
+    width: 100%;
+    height: inherit;
+    // Open
+    &.open {
+        margin-left: -$header-nav-width;
+        // Tablet
+        @media #{$tablet}{margin-left: 0px;}
+    }//end .open
+}//end .app-wrapper
+
+// Container
+.container-fluid {
+    @media #{$desktop}{max-width: 1200px; margin: 0px auto;}
+}
+
+
+// Typography
+p {margin: 5px 0px 7px 0px;}
+h1 {@include typography(32px, 1px, 500); margin: 5px 0px 10px 0px;}
+h2 {@include typography(30px, 1px, 500); margin: 5px 0px 10px 0px;}
+h3 {@include typography(28px, 1px, 400); margin: 5px 0px 10px 0px;}
+h4 {@include typography(26px, 1px, 400); margin: 5px 0px 10px 0px;}
+h5 {@include typography(24px, 1px, 300); margin: 5px 0px 10px 0px;}
+h6 {@include typography(22px, 1px, 300); margin: 5px 0px 10px 0px;}
+
+// Lists
+ul {}
+ol {}
+
+// Links
+a {
+    color: $red;
+    text-decoration: none;
+    @include animate(200ms);
+    
+    &:hover {color: $red-lowest; text-decoration: none;}
+    
+    &:focus {text-decoration: none;}
+    
+}
+
+// Buttons
+.button {
+    padding: 20px;
+    color: white !important;
+    background: $gray-mid !important;
+    border: 0px !important;
+    border-bottom: 5px solid $gray !important;
+    cursor: pointer;
+    display: block;
+    max-width: 200px;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    @include radius(10px);
+    @include animate(200ms);
+
+    // Icon
+    i.fa {margin-right: 10px;}
+
+    &:hover {background: $gray !important;}
+
+    &.red {
+        background: $red !important;
+        border-color: $red-low !important;
+        // Hover
+        &:hover {background: $red-low !important;}
+    }//end .red
+
+    &.green {
+        background: $green-mid !important;
+        border-color: $green !important;
+        &:hover {background: $green !important;}
+    }//end .green
+    
+    &.blue {
+        background: $blue-mid !important;
+        border-color: $blue !important;
+        &:hover {background: $blue !important;}
+    }//end .green
+    
+}//end .button
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* ------------------------------------- Move CSS Below */
+
+
+// =====   content Sets (filters skills tracks courses)   ===== \\
+.listTemp .titleContainer{
+    background:$green;
+    margin-right:-$pad;
+    margin-left:-$pad;
+    @include clear();
+    .setTitle{
+        color:$white;
+        font-size:1.5em;
+        padding-left:$pad-sm;
+        .fa{
+          float:right;
+          margin-top:.2em;
+          margin-right:.5em;
+        }//end .fa(down-carrot icon)
+    }//end .toggleTitle
+}//end .toggler
+
+.listTemp .contentSet{
+  border:solid 1px $green;
+  background:$gray-high;
+  padding:0 $pad $pad;
+  @include radius();
+  overflow:hidden;
+  margin-bottom:2em;
+
+  .subTitle{
+    font-size:1em;
+    color:$gray;
+    line-height:130%;
+    font-weight:200;
+    margin:10px 0 0;
+  }//end .subTitle
+
+  input.search{
+    width:100%;
+  }//search
+}//end .filters
+
+.listTemp .labelContainer{
+  @include clear();
+}
+
+.listTemp .filterLabel{
+  font-size:1em;
+  background:$white;
+  padding-top:$pad-sm;
+  padding-bottom:$pad-sm;
+  margin:3px 0;
+  display:block;
+  @include radius();
+}

@@ -1,0 +1,297 @@
+/* ---------------------------------------- Header Styles */
+
+// Foundation
+header {
+    
+    background: white;
+    height: $header-height;
+    
+    // Logo
+    .logo {
+        
+        a {
+            
+            @include typography(24px, 0.5px, 100);
+            @include animate(100ms);
+            color: #666;
+            height: $header-height;
+            line-height: $header-height;
+            margin: 0px;
+            text-transform: uppercase;
+            
+            // Hover
+            &:hover {color: $green-mid;}
+        
+        }
+        
+    }
+    
+    // Menu
+    .menu {
+        
+        text-align: right;
+        position: static;
+        
+        // Drawer
+        .drawer {
+            
+            height: inherit;
+            line-height: $header-height;
+            
+            // Tablet
+            @media #{$tablet}{display: none;}     
+            
+            // Drawer Icon
+            i.fa {
+                
+                padding: 10px;
+                color: #666666;
+                font-size: 20px;
+                cursor: pointer;
+                @include animate (200ms);
+                
+                // Hover & Open
+                &:hover, &.open {color: $red;}
+                
+            }
+            
+        }
+        
+        // Nav
+        nav {
+            
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: $header-nav-width;
+            height: 100%;
+            display: block;
+            background: $black-blue;
+            text-align: left;
+            margin-right: -$header-nav-width;
+            
+            // Tablet
+            @media #{$tablet}{
+                
+                position: static;
+                width: auto;
+                height: auto;
+                background: none;
+                margin-right: 0px;
+               
+            }
+            
+            // Nav Open
+            &.open {margin-right: 0px;}
+            
+            ul {
+                
+                // Tablet
+                @media #{$tablet}{
+                    
+                    float: right;
+                    height: $header-height;
+                    line-height: $header-height;
+                    
+                }
+                
+                // List Items
+                li {
+                    
+                    // Tablet
+                    @media #{$tablet}{display: inline-block;}
+                    
+                    // Links
+                    a {
+                        
+                        padding: 20px;
+                        display: block;
+                        color: lighten($black-blue, 50%);
+                        font-size: 16px;
+                        font-weight: 200;
+                        @include animate(100ms);
+                        
+                        i.fa {
+                            
+                            font-size: 20px;
+                            width: 30px;
+                            display: inline-block;
+                            text-align: right;
+                            margin-right: 20px;
+                            
+                        }
+                        
+                        &:hover {
+                            
+                            color: white; 
+                            background: lighten($black-blue, 3%);
+                            
+                        }
+                        
+                        // Active
+                        &.active {color: white;}
+                        
+                        // Tablet
+                        @media #{$tablet}{
+                            
+                            display: inline-block;
+                            padding: 5px 10px;
+                            @include typography(14px, 0.5px, 200);
+                            
+                            // Icon
+                            i.fa {width: auto; margin-right: 10px;}
+                            
+                            // Hover
+                            &:hover {
+                                
+                                color: white;
+                                background: $blue;
+                                @include radius();
+                                
+                            }
+                            
+                            // Active
+                            &.active {
+                                
+                                background: $green-mid;
+                                color: white;
+                                @include radius();
+                                @include animate(200ms);
+                                    
+                                // Hover
+                                &:hover {background: $blue;}
+                                
+                            }
+                            
+                        } 
+                        
+                    }
+                    
+                    &.no-link {
+                        
+                        span {
+                        
+                            padding: 20px;
+                            display: block;
+                            color: lighten($black-blue, 50%);
+                            font-size: 16px;
+                            font-weight: 200;
+                            cursor: pointer;
+                            @include animate(100ms);
+                            
+                            i.fa {
+                                
+                                font-size: 20px;
+                                width: 30px;
+                                display: inline-block;
+                                text-align: right;
+                                margin-right: 20px;
+                                
+                            }
+                            
+                            &:hover {
+                                
+                                color: white; 
+                                background: lighten($black-blue, 3%);
+                                
+                            }
+                            
+                            // Tablet
+                            @media #{$tablet}{
+                                
+                                display: inline-block;
+                                padding: 5px 10px;
+                                @include typography(14px, 0.5px, 200);
+                                
+                                // Icon
+                                i.fa {width: auto; margin-right: 10px;}
+                                
+                                // Hover
+                                &:hover {
+                                    
+                                    color: white;
+                                    background: $blue;
+                                    @include radius();
+                                    
+                                }
+                                
+                            } 
+                            
+                        }
+                        
+                    }
+                    
+                    // Drop Down
+                    ul {
+                        
+                        &.ng-hide {display: block !important;}
+                        
+                        li {
+                            
+                            a, &.no-link span {padding: 20px 40px;}
+                            
+                        }
+                        
+                        // Tablet
+                        @media #{$tablet}{
+                            
+                            position: absolute;
+                            top: $header-height;
+                            width: 150px;
+                            background: white;
+                            right: 0;
+                            z-index: 12;
+                            padding: 0px;
+                            margin: 0px;
+                            height: 100px;
+                            line-height: normal;
+                            overflow: hidden;
+                            border-bottom: 5px solid $green-high;
+                            @include radius-specify(0px, 0px, 10px, 10px);
+                            @include animate(100ms);
+                            
+                            // NG Hide
+                            &.ng-hide {display: none; height: 0px;}
+                            
+                            
+                            // Links
+                            li {
+                                
+                                display: block;
+                                margin: 0px;
+                                
+                                a, &.no-link span  {
+                                    
+                                    padding: 5px 10px;
+                                    display: block;
+                                    
+                                    // Icon
+                                    i.fa {width: 20px; margin-right: 10px;}
+                                    
+                                    // Hover
+                                    &:hover {@include radius(0px); background: $green-mid;}
+                                    
+                                }
+                                                            
+                            }
+                            
+                        }
+                        
+                        // Desktop
+                         @media #{$tablet}{
+                             
+                             right: auto;
+                             
+                         }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}
