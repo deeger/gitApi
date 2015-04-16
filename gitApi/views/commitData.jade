@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1 #{commits[0].commit.author.name} has committed #{commits.length} times.
+
+    h2 #{commits[0].commit.author.email}
+
+    ol
+      each obj in commits
+        li #{obj.commit.message}
